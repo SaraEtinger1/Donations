@@ -64,7 +64,7 @@ function App() {
       <h1>ימים נוראים תשפ"ד, 2023</h1>
       <h3>היעד הסופי הוא:{destination}</h3>
       <NavBar />
-
+<h1>בשביל git</h1>
       <CircularWithValueLabel value={percents} />
 
 
