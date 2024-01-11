@@ -10,10 +10,11 @@ import { fromShekelToDollar, timePast } from "./helper";
 const DonationItem = ({ c }) => {
 
     let coin = useContext(MyCurrentCoinContext);
-
+    // let colorCC = useContext(MyCurrentCoinContext);
     return (
         <>
-            <div className="donationItem">
+{/* <input type="color" onChange={(e)=>colorCC.changeC(e.target.value)}/> */}
+            <div className="donationItem">                
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         sx={{ height: 110 }}
@@ -25,9 +26,8 @@ const DonationItem = ({ c }) => {
                             {c.name}
                         </Typography>
                         <Typography variant="h3" color="text.secondary">
-                            {c.sum}
-                            {/* { coin.d ? fromShekelToDollar(c.sum,coin.cd) : c.sum }
-                            {coin.d ? "דולרים" : "שקלים"} */}
+                            { coin.d ? fromShekelToDollar(c.sum,coin.cd) : c.sum }
+                            {coin.d ? " $ " : " ₪ "}
                         </Typography>
                         <Typography variant="h6" color="text.secondary">
                             {c.delection}
@@ -38,7 +38,7 @@ const DonationItem = ({ c }) => {
                     </CardContent>
                     <CardActions>
                         <Button variant="outlined" startIcon={< RecommendIcon />}>
-                            Like
+                          Like
                         </Button>
                         <a href="https://www.ami.org.il/" target="_blank">אתר עזר מציון</a>
                     </CardActions>
@@ -50,10 +50,4 @@ const DonationItem = ({ c }) => {
 
 export default DonationItem;
 
-{/* <div className="oneContributione"> */ }
-{/* <h5>{c.id}</h5>  */ }
-{/* <h1 className="name">{c.name}</h1>
-                <h3 className="sum">{c.sum}</h3>
-                <h3 className="delection">{c.delection}</h3> */}
-{/* <h3>{c.diffDays()}</h3> */ }
-{/* </div> */ }
+

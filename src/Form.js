@@ -11,11 +11,12 @@ import { prefixer } from 'stylis';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import "./Form.css";
+import { MyCurrentCoinContext } from "./App";
 // import  from './CircularProgressWithLabel';
 
 const Form = ({ add }) => {
 
-    let [myErrors, setMyErrors] = useState({})
+
 
     let [myCustomer, setMyCustomer] = useState({
         id: "",
@@ -34,7 +35,9 @@ const Form = ({ add }) => {
         let copy = { ...myCustomer, [inputName]: inputValue, [inputSum]: inputValueSum };
         setMyCustomer(copy);
 
-    }
+    } 
+    let [myErrors, setMyErrors] = useState({
+    })
     const check = () => {
         let err = {};
         if (!myCustomer.name)
@@ -42,31 +45,28 @@ const Form = ({ add }) => {
         if (myCustomer.sum < 0)
             err.sum = 'נא להקיש סכום גבוה מ-0 שח'
         return err;
-
     }
-    console.log(myCustomer)
     const mySubmit = (e) => {
         e.preventDefault();
         let resulrt = check();
         console.log("resulrt: " + resulrt)
         if (Object.keys(resulrt).length == 0) {
-            JSON.stringify(myCustomer)
-            myCustomer.date=new Date();
-            add(myCustomer);
-        }
+           JSON.stringify(myCustomer)
+          myCustomer.date=new Date();
+            add(myCustomer);}
         else
-            alert(setMyErrors(resulrt))
-
+            setMyErrors(resulrt)
         navigate("/all");
     }
  
     return (<> 
-         <div className="form">           
+         <div className="form">   
+               
         <form onSubmit={mySubmit}>            
             <input name="name" className={myErrors.name ? "not valid" : " "} type="text" onChange={change} placeholder="שם" /><br />
-            {myErrors.name ? <span className="error-message">{myErrors.name}</span> : null}
+            {myErrors.name!=undefined ? <span className="error-message">{myErrors.mame}</span> : null}
             <input name="sum" className={myErrors.sum ? "not valid" : " "} type="text" onChange={change} placeholder=" סכום התרומה   " /><br />
-            {myErrors.sum ? <span className="error-message">{myErrors.sum}</span> : null}
+            {myErrors.sum !=undefined? <span className="error-message">{myErrors.sum}</span> : null}
             <input name="delection" type="text" onChange={change} placeholder="  הקדשה" /><br />
             <input type="submit" />
         </form> 

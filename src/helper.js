@@ -3,13 +3,10 @@ import { MyCurrentCoinContext } from "./App";
 
 
 export function fromShekelToDollar(sum, dollarRate) {
-
-
     return sum / dollarRate;
 }
 export function fromDollarToShekel(sum, dollarRate) {
-
-    return dollarRate * sum;
+   return dollarRate * sum;
 }
 
 
@@ -25,4 +22,8 @@ export function timePast(date) {
         return `לפני ${hours} שעות`
     let minots = Math.floor(difference / (1000 * 60));
     return `לפני ${minots} דקות`
+}
+
+export function color(){
+    
 }

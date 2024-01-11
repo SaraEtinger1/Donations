@@ -16,38 +16,48 @@ import DonationItem from './DonationItem';
 export const MyCurrentCoinContext = createContext();
 
 function App() {
-  let destination = 50000;
+
+  // let [currentColor,setCurrentColor]=useState("");
+  // const changeColor=(newColor)=>{
+  //   setCurrentColor(newColor)
+  // }
+
+  let destination = 500000;
 
   let [contribution, setContribution] = useState([
-    { id: 1, name: "משה כהן", sum: 50, delection: " להצלחת הפרויקט", date: new Date(2023, 11, 15) },
-    { id: 2, name: "אנונימי", sum: 550, delection: " להצלת עם ישראל ולהחזרת החטופים", date: new Date(2023, 10, 17) }
+    { id: 1, name: "משה כהן", sum: 5000, delection: " להצלחת הפרויקט", date: new Date(2023, 10, 17) },
+    { id: 2, name: " פיני חימוביץ", sum: 13000, delection: "  עם ישראל חי!", date: new Date(2023, 11, 15) },
+    { id: 3, name: "אנונימי", sum: 100000, delection: " להצלת עם ישראל ולהחזרת החטופים", date: new Date(2023, 12, 1) }
   ])
-  // const [DollarRate, setDollarRate] = useState(undefined);
-  // const [coinIsDollar, setCoinIsDollar] = useState(false);
-  // useEffect(() => {
-  //   axios.get(" https://v6.exchangerate-api.com/v6/664d05a0b1705ce79cdb52df/latest/USD")
-  //     .then(res => {
-  //       alert(res.data.conversion_rates.ILS);
-  //       setDollarRate(res.data.conversion_rates.ILS)
-  //       console.log(res.data)
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       alert("אא להציג את האתר בדולרים")
-  //     })
-  // }, [])
+  const [DollarRate, setDollarRate] = useState(undefined);
+  const [coinIsDollar, setCoinIsDollar] = useState(false);
+  useEffect(() => {
+    axios.get(" https://v6.exchangerate-api.com/v6/664d05a0b1705ce79cdb52df/latest/USD")
+      .then(res => {
+        alert(res.data.conversion_rates.ILS);
+        setDollarRate(res.data.conversion_rates.ILS)
+      })
+      .catch(err => {
+        console.log(err);
+        alert("לא ניתן להציג את האתר בדולרים")
+      })
+  }, [])
 
   let percents = 0;
+  let completion = destination;
+  let result = 0;
   contribution.forEach(element => {
     percents = Number(percents) + Number(element.sum);
   });
-  percents = (Number(percents) /Number( destination)) * 100;
+  completion = (destination - percents);
+  result =percents;
+  percents = (Number(percents) / Number(destination)) * 100;
 
 
+  const changeCoin = () => {
+    setCoinIsDollar(!coinIsDollar)
+  }
 
-  // const changeCoin = () => {
-  //   setCoinIsDollar(!coinIsDollar)
-  // }
   const add = (newDonate) => {
     let id = contribution[contribution.length - 1].id + 1;
     newDonate.id = id;
@@ -58,25 +68,25 @@ function App() {
 
 
 
+
   return (
     <>
-      <h1>ברוכים הבאים לאתר התרומות של עזר מציון</h1>
+      <h1> ברוכים הבאים לאתר התרומות של עזר מציון</h1>
       <h1>ימים נוראים תשפ"ד, 2023</h1>
-      <h3>היעד הסופי הוא:{destination}</h3>
-      <NavBar />
-<h1>בשביל git</h1>
+      <h2>₪ יעד הקמפיין הוא 500,000  </h2>     
+      <MyCurrentCoinContext.Provider value={{ d: coinIsDollar, cc: changeCoin, cd: DollarRate }}> 
+      <NavBar /> 
+      {<ChooseCoin />  }
       <CircularWithValueLabel value={percents} />
-
-
-      {/* <MyCurrentCoinContext.Provider value={{ d: coinIsDollar, cc: changeCoin, cd: DollarRate }}> */}
-      {/* <ChooseCoin />  */}
-
+      <h2>   ₪ הושג עד כה {result}    </h2>      
+      <h2>₪ נשאר להשיג עוד {completion}  </h2>     
+      {/* <input type='button' className="changeColor" value="שנה צבע רקע" onClick={changeColor}/> */}
       <Routes>
         <Route path='all' element={<List arr={contribution} />} />
         <Route path='add' element={<Form add={add} />} />
         <Route path='sort' element={<List arr={contribution} />} />
       </Routes>
-      {/* </MyCurrentCoinContext.Provider> */}
+      </MyCurrentCoinContext.Provider>
 
     </>
   );

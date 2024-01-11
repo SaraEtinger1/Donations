@@ -3,13 +3,9 @@ import "./NavBar.css";
 
 const NavBar = () => {
     return (<nav>
-        <ul className="ul">
-           
-            <li><Link to="all"  className="li"><span>כל התרומות </span></Link></li>
-             <li><Link to="add"  className="li">הוספת תרומה</Link></li>
-             {/* <li><Link to="all">מטבע</Link></li> */}
-
-
+        <ul className="ul">           
+            <li><Link to="all" className="li"><span>כל התרומות </span></Link></li>
+            <li><Link to="add" className="li"><span>הוספת תרומה</span></Link></li>
         </ul>
     </nav>  );
 }
