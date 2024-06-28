@@ -10,10 +10,8 @@ import { fromShekelToDollar, timePast } from "./helper";
 const DonationItem = ({ c }) => {
 
     let coin = useContext(MyCurrentCoinContext);
-    // let colorCC = useContext(MyCurrentCoinContext);
     return (
         <>
-{/* <input type="color" onChange={(e)=>colorCC.changeC(e.target.value)}/> */}
             <div className="donationItem">                
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia

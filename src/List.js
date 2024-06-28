@@ -3,7 +3,6 @@ import DonationItem from "./DonationItem";
 
 const List = ({ arr }) => {
 
-
     const [searchName, setSearchName] = useState("");
     const [searchSum, setSearchSum] = useState(0);
 

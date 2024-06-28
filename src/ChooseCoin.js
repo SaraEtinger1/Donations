@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import {Checkbox} from "@mui/material";
 import { MyCurrentCoinContext } from "./App";
 

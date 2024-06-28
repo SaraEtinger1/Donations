@@ -4,7 +4,6 @@ body {
   background-size: 100% 100%;
   background-position: 10%;
   background-attachment: fixed;
-  /* background-clip: content-box; */
 }
 
 .li {
@@ -40,7 +39,6 @@ li a {
   height: 10vh;
   width: 40vw;
   margin: auto;
-  /* background-color: powderblue; */
 }
 
 .donationItem {
@@ -50,9 +48,6 @@ li a {
   border-radius: 7px;
   height:10%;
   width: 25%;
-
-
-  
 
 }
 .sort{
@@ -75,7 +70,3 @@ h2{
   list-style-type: none;
  
 }
- /* .changeColor{
-     background-image: url("https://i.ytimg.com/vi/k5ehgcoNwmw/maxresdefault.jpg"); */
-  /* background-color: let(background-color); */
-/* }  */ 

@@ -1,22 +1,9 @@
 
-import { blue } from "@mui/material/colors";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { prefixer } from 'stylis';
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
 import "./Form.css";
-import { MyCurrentCoinContext } from "./App";
-// import  from './CircularProgressWithLabel';
 
 const Form = ({ add }) => {
-
-
 
     let [myCustomer, setMyCustomer] = useState({
         id: "",
@@ -73,34 +60,7 @@ const Form = ({ add }) => {
         </div> 
         </>);
 
-    {/* {/* <Link to="ashray" element={<Ashray/>}>פרטי אשראי</Link>   https://codepen.io/simoberny/pen/XgEgGg}* */ }
 
 }
 
 export default Form;
-
-// ספריית עיצוב טופס 
-//mui
-//מדוע לא עבד? לא שלח מידע לרשימה, כן אוסיף
-
-    // const theme = createTheme({
-    //     direction: 'rtl',
-    // });
-    // const cacheRtl = createCache({
-    //     key: 'muirtl',
-    //     stylisPlugins: [prefixer, rtlPlugin],
-    // });
-// /* <CacheProvider value={cacheRtl}>
-//                 <ThemeProvider theme={theme}>
-//                     <div dir="rtl" >
-//                         <input type="text" onChange={change} placeholder="שם" className={myErrors.name ? "not valid" : " "}  /><br/>
-//                         {myErrors.name ? <span className="error-message">{myErrors.name}</span> : null}
-//                         <input type="text" placeholder="סכום התרומה" className={myErrors.sum ? "not valid" : " "} onChange={change} /><br/>
-//                         {myErrors.sum ? <span className="error-message">{myErrors.sum}</span> : null}
-//                         <input type="text" placeholder="הקדשה" onChange={change} /><br/>
-                        
-//                     </div>
-//             //     </ThemeProvider>
-//             // </CacheProvider>
-
-

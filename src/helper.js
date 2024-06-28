@@ -1,7 +1,4 @@
 
-import { MyCurrentCoinContext } from "./App";
-
-
 export function fromShekelToDollar(sum, dollarRate) {
     return sum / dollarRate;
 }

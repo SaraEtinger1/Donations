@@ -1,26 +1,18 @@
 
 import './App.css';
-import { Link, Route, Routes } from 'react-router-dom';
+import {  Route, Routes } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
 import NavBar from './NavBar';
 import { useEffect, useState } from "react";
 import ChooseCoin from './ChooseCoin';
 import axios from "axios";
-import Button from '@mui/material/Button';
-import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 import CircularWithValueLabel from './CircularProgressWithLabel';
 import { createContext } from 'react';
-import DonationItem from './DonationItem';
 
 export const MyCurrentCoinContext = createContext();
 
 function App() {
-
-  // let [currentColor,setCurrentColor]=useState("");
-  // const changeColor=(newColor)=>{
-  //   setCurrentColor(newColor)
-  // }
 
   let destination = 500000;
 
@@ -65,9 +57,6 @@ function App() {
     let copy = [...contribution, newDonate];
     setContribution(copy);
   }
-
-
-
 
   return (
     <>

@@ -1,10 +1,7 @@
-import { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import mySubmit from './Form';
-import { yellow } from '@mui/material/colors';
+
 function CircularProgressWithLabel(props) {
     return <Box sx={{ position: 'relative', display: 'inline-flex'  }}>
         <CircularProgress variant="determinate"   style={{ width: '260px', height: '150px'}}{...props} />
