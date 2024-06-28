@@ -80,7 +80,6 @@ function App() {
       <CircularWithValueLabel value={percents} />
       <h2>   ₪ הושג עד כה {result}    </h2>      
       <h2>₪ נשאר להשיג עוד {completion}  </h2>     
-      {/* <input type='button' className="changeColor" value="שנה צבע רקע" onClick={changeColor}/> */}
       <Routes>
         <Route path='all' element={<List arr={contribution} />} />
         <Route path='add' element={<Form add={add} />} />
